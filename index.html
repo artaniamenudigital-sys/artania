@@ -104,26 +104,44 @@ body::after{
   position:absolute;inset:0;
   background-image:repeating-linear-gradient(0deg,rgba(245,240,235,0.012) 0px,rgba(245,240,235,0.012) 1px,transparent 1px,transparent 60px);
 }
-.hero-content{position:relative;z-index:2;text-align:center;padding:1.5rem;max-width:900px}
-.hero-overline{font-size:10px;letter-spacing:0.45em;margin-bottom:1.8rem;display:flex;align-items:center;justify-content:center;gap:1rem;animation:fadeUp 1s ease both;}
-.hero-overline::before,.hero-overline::after{content:'';display:block;width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--red));}
+.hero-content{
+  position:relative;z-index:2;text-align:center;padding:1.5rem;
+  max-width:900px;margin:0 auto;
+}
+.hero-overline{
+  font-size:10px;letter-spacing:0.45em;margin-bottom:1.8rem;
+  display:flex;align-items:center;justify-content:center;gap:1rem;
+  animation:fadeUp 1s ease both;
+}
+.hero-overline::before,
+.hero-overline::after{
+  content:'';display:block;width:40px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--red));
+}
 .hero-title{
-  font-size:clamp(3.5rem,12vw,8rem);
-  font-weight:700;line-height:0.85;
+  font-size:clamp(3rem,9vw,7rem);
+  font-weight:700;line-height:1.1;
   color:var(--white);
   animation:fadeUp 1.2s 0.2s ease both;
+  margin-bottom:0.25rem;
 }
-.hero-title .red{color:var(--red);display:block}
+.hero-title .red{color:var(--red);display:inline-block;}
 .hero-subtitle{
   font-size:clamp(1rem,2.5vw,1.4rem);
   font-style:italic;font-weight:300;
-  color:var(--faint);margin:1.2rem 0 2rem;
+  color:var(--faint);margin:1rem 0 2rem;
   letter-spacing:0.02em;
   animation:fadeUp 1s 0.5s ease both;
 }
-.hero-divider{display:flex;align-items:center;gap:1rem;justify-content:center;margin-bottom:2rem;animation:fadeUp 1s 0.7s ease both;}
+.hero-divider{
+  display:flex;align-items:center;gap:1rem;justify-content:center;
+  margin-bottom:2rem;animation:fadeUp 1s 0.7s ease both;
+}
 .hero-divider-line{height:1px;width:60px;background:linear-gradient(90deg,transparent,var(--red))}
-.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp 1s 0.9s ease both;}
+.hero-btns{
+  display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;
+  animation:fadeUp 1s 0.9s ease both;
+}
 .btn-red{
   padding:12px 32px;background:var(--red);color:white;
   font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;
@@ -139,7 +157,6 @@ body::after{
   transition:all 0.3s;border-radius:40px;
 }
 .btn-ghost-red:hover{border-color:var(--red);color:var(--white)}
-/* SCROLL INDICATOR ELIMINADO - ya no estorba */
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 
 /* ABOUT */
@@ -274,7 +291,7 @@ body::after{
 .faq-item.open .faq-a{max-height:300px}
 .faq-a-inner{padding:0 0 1rem;font-size:0.9rem;color:var(--mist);line-height:1.7}
 
-/* CONTACTO con WhatsApp directo */
+/* CONTACTO */
 .contact-sec{background:var(--black);padding:5rem 1rem;border-top:1px solid var(--border)}
 .contact-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
 .contact-items{display:flex;flex-direction:column;gap:1.5rem;margin-top:1.5rem}
@@ -293,7 +310,7 @@ body::after{
 .contact-map-btn{margin-top:1rem;background:rgba(4,4,4,0.8);border:1px solid var(--border);padding:8px 18px;color:var(--white);border-radius:30px;cursor:pointer;font-size:0.7rem;}
 
 /* FOOTER */
-footer{background:var(--void);padding:2.5rem 1rem 1rem;border-top:1px solid var(--border)}
+footer{background:var(--void);padding:2.5rem 1rem 1rem;border-top:1px solid var(--border);cursor:pointer;position:relative;z-index:10;}
 .footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;padding-bottom:2rem}
 .footer-logo{font-family:'Caveat',cursive;font-size:1.4rem;font-weight:600;color:var(--white);}
 .footer-logo span{color:var(--red)}
@@ -319,6 +336,8 @@ footer{background:var(--void);padding:2.5rem 1rem 1rem;border-top:1px solid var(
 .toast.show{transform:translateY(0);opacity:1}
 .reveal{opacity:0;transform:translateY(20px);transition:0.8s}
 .reveal.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
 @media (max-width:860px){
   .nav-links,.nav-book{display:none}
   .hamburger{display:flex}
@@ -326,6 +345,9 @@ footer{background:var(--void);padding:2.5rem 1rem 1rem;border-top:1px solid var(
   .styles-grid{grid-template-columns:1fr}
   .footer-inner{grid-template-columns:1fr 1fr}
   .form-row{grid-template-columns:1fr}
+  .hero-title{font-size:clamp(2.5rem,8vw,5rem);line-height:1.2;}
+  .hero-overline{font-size:8px;margin-bottom:1.2rem;}
+  .hero-subtitle{margin:0.8rem 0 1.5rem;}
 }
 @media (max-width:550px){
   .portfolio-grid{grid-template-columns:1fr}
@@ -333,6 +355,33 @@ footer{background:var(--void);padding:2.5rem 1rem 1rem;border-top:1px solid var(
   .hero-btns{gap:0.8rem;flex-direction:column;align-items:center}
   .navbar{padding:0 1rem}
 }
+
+/* ADMIN PANEL (oculto hasta activar) */
+.admin-overlay{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.96);overflow-y:auto;opacity:0;pointer-events:none;transition:0.2s;}
+.admin-overlay.open{opacity:1;pointer-events:all}
+.admin-box{background:#0E0E0E;border:1px solid rgba(196,30,58,0.3);max-width:560px;margin:2rem auto;padding:1.5rem;border-radius:8px;}
+.admin-head{display:flex;justify-content:space-between;margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:0.5rem;}
+.admin-tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1rem;}
+.a-tab{background:none;border:1px solid var(--border);color:var(--faint);padding:6px 14px;font-size:0.7rem;cursor:pointer;text-transform:uppercase;}
+.a-tab.active{background:rgba(196,30,58,0.2);border-color:var(--red);color:var(--red);}
+.a-sec{display:none;}
+.a-sec.active{display:block;}
+.al{font-size:0.7rem;color:rgba(196,30,58,0.7);margin:12px 0 4px;}
+.ai,.asel,.ata{width:100%;padding:8px;background:rgba(255,255,255,0.05);border:1px solid var(--border);color:white;font-size:0.8rem;}
+.arow{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.abtn{padding:8px 14px;border:none;cursor:pointer;font-size:0.7rem;text-transform:uppercase;border-radius:4px;}
+.abtn-r{background:var(--red);color:white;}
+.abtn-s{background:rgba(255,255,255,0.1);color:var(--faint);border:1px solid var(--border);}
+.abtn-d{background:rgba(180,30,30,0.2);border:1px solid rgba(180,30,30,0.4);color:#ff8a8a;}
+.alist{display:flex;flex-direction:column;gap:6px;max-height:250px;overflow-y:auto;}
+.aitem{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.03);padding:8px;border:1px solid var(--border);}
+.aprev{max-width:100%;max-height:80px;margin-top:5px;display:none;}
+.pwd-overlay{position:fixed;inset:0;z-index:1100;background:rgba(0,0,0,0.98);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;}
+.pwd-overlay.open{opacity:1;pointer-events:all;}
+.pwd-box{background:#0E0E0E;border:1px solid var(--red);padding:2rem;max-width:300px;text-align:center;}
+.pwd-in{width:100%;padding:10px;background:rgba(255,255,255,0.05);border:1px solid var(--border);color:white;text-align:center;font-size:1rem;}
+.pwd-err{color:#ff6b6b;font-size:0.7rem;margin-top:5px;}
+.pwd-btn{margin-top:12px;background:var(--red);color:white;border:none;padding:8px;width:100%;cursor:pointer;}
 </style>
 </head>
 <body>
@@ -350,12 +399,13 @@ footer{background:var(--void);padding:2.5rem 1rem 1rem;border-top:1px solid var(
 <div class="mobile-nav" id="mobileNav"><ul><li><a href="#sobre" onclick="toggleMobile()">Artista</a></li><li><a href="#portfolio" onclick="toggleMobile()">Catálogo</a></li><li><a href="#trabajos" onclick="toggleMobile()">Trabajos</a></li><li><a href="#estilos" onclick="toggleMobile()">Estilos</a></li><li><a href="#cuidados" onclick="toggleMobile()">Cuidados</a></li><li><a href="#cita" onclick="toggleMobile()">Agendar Cita</a></li><li><a href="#contacto" onclick="toggleMobile()">Contacto</a></li></ul></div>
 
 <section class="hero" id="inicio"><div class="hero-bg"></div><div class="hero-lines"></div>
-<div class="hero-content"><div class="hero-overline">Arte sobre piel · Naranjo, Costa Rica</div>
-<h1 class="hero-title">Artania<span class="red">Studio</span></h1>
-<p class="hero-subtitle">Tatuajes con alma — cada línea cuenta tu historia</p>
-<div class="hero-divider"><div class="hero-divider-line"></div><div class="hero-divider-line"></div></div>
-<div class="hero-btns"><a href="#portfolio" class="btn-red">Ver Catálogo</a><a href="#cita" class="btn-ghost-red">Agendar Cita</a></div></div>
-<!-- SCROLL INDICATOR ELIMINADO -->
+<div class="hero-content">
+  <div class="hero-overline">Arte sobre piel · Naranjo, Costa Rica</div>
+  <h1 class="hero-title">Artania <span class="red">Studio</span></h1>
+  <p class="hero-subtitle">Tatuajes con alma — cada línea cuenta tu historia</p>
+  <div class="hero-divider"><div class="hero-divider-line"></div><div class="hero-divider-line"></div></div>
+  <div class="hero-btns"><a href="#portfolio" class="btn-red">Ver Catálogo</a><a href="#cita" class="btn-ghost-red">Agendar Cita</a></div>
+</div>
 </section>
 
 <section class="about" id="sobre"><div class="about-inner"><div class="reveal-l"><div class="about-visual"><div class="about-frame"></div><div class="about-img" id="aboutImgWrap"><div class="about-img-placeholder">🖌️</div></div></div></div>
@@ -375,24 +425,32 @@ footer{background:var(--void);padding:2.5rem 1rem 1rem;border-top:1px solid var(
 
 <section class="contact-sec" id="contacto"><div class="contact-inner"><div class="contact-info"><div class="sec-overline">Visitanos</div><h2 class="sec-title">Contacto<br><em>& Estudio</em></h2><div class="contact-items"><div class="contact-item"><div class="contact-icon">📍</div><div><div class="contact-label">Ubicación</div><div class="contact-val">Naranjo Centro, Alajuela<br>Con cita previa</div></div></div><div class="contact-item"><div class="contact-icon">💬</div><div><div class="contact-label">WhatsApp</div><div class="contact-val" id="cPhone">+506 6289 4346</div><a href="https://wa.me/50662894346?text=Hola%20Valeria%2C%20me%20interesa%20agendar%20una%20cita%20para%20un%20tatuaje" target="_blank" style="font-size:12px;color:var(--red)">Enviar mensaje →</a></div></div><div class="contact-item"><div class="contact-icon">📸</div><div><div class="contact-label">Instagram</div><div class="contact-val" id="cIg">@artania.cr</div><a href="https://instagram.com/artania.cr" target="_blank" style="font-size:12px;color:var(--red)">Ver perfil</a></div></div><div class="contact-item"><div class="contact-icon">🕐</div><div><div class="contact-label">Horario</div><div class="contact-val">Lun–Sáb · 10am – 7pm<br>Solo con cita</div></div></div></div><div class="contact-social"><a href="https://instagram.com/artania.cr" target="_blank">📸</a><a href="https://wa.me/50662894346?text=Hola%20quiero%20información%20sobre%20tatuajes" target="_blank">💬</a></div></div><div class="contact-map"><div class="contact-map-ring"><div class="contact-map-dot">📍</div></div><div class="contact-map-label">Artania Studio</div><button class="contact-map-btn" onclick="window.open('https://maps.google.com/?q=Naranjo+Alajuela+Costa+Rica','_blank')">Ver mapa →</button></div></div></section>
 
-<footer><div class="footer-inner"><div class="footer-brand"><div class="footer-logo">Artania<span>Studio</span></div><div class="footer-tagline">Arte en tu piel, para siempre</div><p>Diseños únicos en Naranjo, Alajuela. Técnica impecable y espacio seguro.</p></div><div class="footer-col"><div class="footer-col-title">Explora</div><ul><li><a href="#sobre">Artista</a></li><li><a href="#portfolio">Catálogo</a></li><li><a href="#estilos">Estilos</a></li><li><a href="#cuidados">Cuidados</a></li></ul></div><div class="footer-col"><div class="footer-col-title">Legal</div><ul><li><a href="#cita">Agendar cita</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contacto">Contacto</a></li></ul></div><div class="footer-col"><div class="footer-col-title">Redes</div><ul><li><a href="https://instagram.com/artania.cr" target="_blank">Instagram</a></li><li><a href="https://wa.me/50662894346" target="_blank">WhatsApp</a></li></ul></div></div><div class="footer-bottom"><p>© 2025 Artania Studio — Naranjo, Alajuela, CR</p><p>✨ Tinta con propósito</p></div></footer>
+<footer id="secretFooter"><div class="footer-inner"><div class="footer-brand"><div class="footer-logo">Artania<span>Studio</span></div><div class="footer-tagline">Arte en tu piel, para siempre</div><p>Diseños únicos en Naranjo, Alajuela. Técnica impecable y espacio seguro.</p></div><div class="footer-col"><div class="footer-col-title">Explora</div><ul><li><a href="#sobre">Artista</a></li><li><a href="#portfolio">Catálogo</a></li><li><a href="#estilos">Estilos</a></li><li><a href="#cuidados">Cuidados</a></li></ul></div><div class="footer-col"><div class="footer-col-title">Legal</div><ul><li><a href="#cita">Agendar cita</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contacto">Contacto</a></li></ul></div><div class="footer-col"><div class="footer-col-title">Redes</div><ul><li><a href="https://instagram.com/artania.cr" target="_blank">Instagram</a></li><li><a href="https://wa.me/50662894346" target="_blank">WhatsApp</a></li></ul></div></div><div class="footer-bottom"><p>© 2025 Artania Studio — Naranjo, Alajuela, CR</p><p>✨ Tinta con propósito</p></div></footer>
+
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)"><button class="lightbox-close" onclick="closeLightbox()">✕</button><img class="lightbox-img" id="lightboxImg"/><div class="lightbox-caption" id="lightboxCaption"></div></div>
 <div class="toast" id="toast"></div>
 
+<!-- ADMIN PANEL SECRETO -->
+<div class="admin-overlay" id="adminOverlay"><div class="admin-box"><div class="admin-head"><div class="admin-head-title">⚙ Admin — Artania Studio</div><button class="admin-x" onclick="closeAdmin()">✕</button></div><div class="admin-tabs"><button class="a-tab active" onclick="aTab(this,'secPortfolio')">Portafolio</button><button class="a-tab" onclick="aTab(this,'secClients')">Trabajos</button><button class="a-tab" onclick="aTab(this,'secCats')">Categorías</button><button class="a-tab" onclick="aTab(this,'secArtista')">Artista</button><button class="a-tab" onclick="aTab(this,'secConfig')">Config</button></div><div class="a-sec active" id="secPortfolio"><div class="al">Agregar/Editar diseño</div><input class="ai" id="pName" placeholder="Nombre"/><div class="arow"><div><div class="al">Categoría</div><select id="pCat"></select></div><div><div class="al">Estilo</div><select id="pStyle"><option>Fine Line</option><option>Blackwork</option><option>Neo-Tradicional</option><option>Ilustración</option><option>Dotwork</option><option>Lettering</option></select></div></div><div class="al">URL de imagen (Cloudflare, Imgur, etc)</div><input class="ai" id="pImg" placeholder="https://..." oninput="prev(this,'pPrev')"/><img class="aprev" id="pPrev"/><div class="arow"><div><div class="al">Descripción</div><input class="ai" id="pDesc"/></div></div><div style="display:flex;gap:6px;margin-top:10px"><button class="abtn abtn-r" onclick="savePortfolioItem()">Guardar</button><button class="abtn abtn-s" onclick="clearPForm()">Limpiar</button></div><input type="hidden" id="pEditId"/><div class="al">Lista de diseños</div><div class="alist" id="pList"></div></div><div class="a-sec" id="secClients"><div class="al">Agregar trabajo de cliente</div><input class="ai" id="cwName" placeholder="Nombre cliente"/><div class="al">Descripción</div><input class="ai" id="cwDesc" placeholder="Ej: Floral fine line"/><div class="al">URL foto</div><input class="ai" id="cwImg" placeholder="https://..." oninput="prev(this,'cwPrev')"/><img class="aprev" id="cwPrev"/><div style="display:flex;gap:6px;margin-top:10px"><button class="abtn abtn-r" onclick="saveClientWork()">Guardar</button><button class="abtn abtn-s" onclick="clearCWForm()">Limpiar</button></div><input type="hidden" id="cwEditId"/><div class="al">Trabajos registrados</div><div class="alist" id="cwList"></div></div><div class="a-sec" id="secCats"><div class="al">Nueva categoría</div><input class="ai" id="catName" placeholder="Florales, Animales..."/><button class="abtn abtn-r" style="margin-top:5px" onclick="saveCat()">Agregar</button><div class="al">Categorías existentes</div><div class="alist" id="catList"></div></div><div class="a-sec" id="secArtista"><div class="al">Nombre artista</div><input class="ai" id="artName"/><div class="al">Foto perfil URL</div><input class="ai" id="artImg" oninput="prev(this,'artPrev')"/><img class="aprev" id="artPrev"/><div class="al">Bio párrafo 1</div><textarea class="ata" id="artBio1" rows="2"></textarea><div class="al">Bio párrafo 2</div><textarea class="ata" id="artBio2" rows="2"></textarea><div class="arow"><div><div class="al">Años exp</div><input class="ai" id="artStat1"/></div><div><div class="al">Tatuajes</div><input class="ai" id="artStat2"/></div></div><button class="abtn abtn-r" style="margin-top:10px" onclick="saveArtista()">Guardar perfil</button></div><div class="a-sec" id="secConfig"><div class="al">Teléfono WhatsApp</div><input class="ai" id="cfgPhone"/><div class="al">Instagram</div><input class="ai" id="cfgIg"/><div class="al">Dirección</div><input class="ai" id="cfgAddr"/><div class="al">Horario</div><input class="ai" id="cfgHours"/><div class="al">Contraseña admin</div><input class="ai" id="cfgPwd" type="password" placeholder="Nueva contraseña"/><button class="abtn abtn-r" style="margin-top:10px" onclick="saveConfig()">Guardar configuración</button><button class="abtn abtn-d" style="margin-top:5px" onclick="resetAll()">Resetear demo</button></div></div></div>
+<div class="pwd-overlay" id="pwdOverlay"><div class="pwd-box"><div class="pwd-title">Artania Admin</div><div class="pwd-sub">Contraseña de acceso</div><input class="pwd-in" id="pwdIn" type="password"/><div class="pwd-err" id="pwdErr"></div><button class="pwd-btn" onclick="checkPwd()">Entrar</button></div></div>
+
 <script>
+// DATA
 const KEY='artania_db';
 const DEFAULT={
   config:{ studio:'Artania Studio', phone:'+506 6289 4346', ig:'@artania.cr', addr:'Naranjo Centro, Alajuela', hours:'Lun–Sáb · 10am – 7pm', pwd:'artania2025' },
-  artista:{ name:'Valeria Mora', img:'', bio1:'Tatuadora con más de 8 años de experiencia. Me encanta escuchar tu historia y transformarla en un diseño único sobre tu piel.', bio2:'Especializada en Fine Line, Blackwork e Ilustración. Cada pieza es un original, nunca repito diseños sin consentimiento.', sig:'Valeria', stat1:'8+', stat2:'500+', stat3:'100%' },
+  artista:{ name:'Valeria Mora', img:'', bio1:'Tatuadora autodidacta con más de 8 años de experiencia. Cada diseño nace desde la conversación, el boceto y la piel como lienzo.', bio2:'Especializada en Fine Line, Blackwork e Ilustración. Piezas únicas y personalizadas con respeto por la anatomía y la narrativa personal.', sig:'Valeria', stat1:'8+', stat2:'500+', stat3:'100%' },
   cats:[ {id:'cat1',name:'Florales'},{id:'cat2',name:'Animales'},{id:'cat3',name:'Abstracto'},{id:'cat4',name:'Lettering'} ],
-  portfolio:[ {id:'p1',cat:'cat1',name:'Rosa Minimalista',style:'Fine Line',img:'',desc:'Detalle delicado',price:''},{id:'p2',cat:'cat2',name:'Lobo Geométrico',style:'Blackwork',img:'',desc:'',price:''},{id:'p3',cat:'cat3',name:'Ojo Cósmico',style:'Dotwork',img:'',desc:'',price:''},{id:'p4',cat:'cat4',name:'Frase Caligrafía',style:'Lettering',img:'',desc:'',price:''} ],
+  portfolio:[ {id:'p1',cat:'cat1',name:'Rosa Minimalista',style:'Fine Line',img:'',desc:'Detalle delicado'},{id:'p2',cat:'cat2',name:'Lobo Geométrico',style:'Blackwork',img:'',desc:''},{id:'p3',cat:'cat3',name:'Ojo Cósmico',style:'Dotwork',img:'',desc:''},{id:'p4',cat:'cat4',name:'Frase Caligrafía',style:'Lettering',img:'',desc:''} ],
   clientWorks:[ {id:'cw1',img:'',name:'Ana M.',desc:'Floral fine line en antebrazo'},{id:'cw2',img:'',name:'Carlos R.',desc:'Blackwork geométrico'},{id:'cw3',img:'',name:'Sofia L.',desc:'Lettering en costilla'} ],
-  faqs:[ {q:'¿Cuánto cuesta un tatuaje?',a:'El precio depende del tamaño, estilo y complejidad. Me encargaré de darte un presupuesto exacto al conocer tu idea. Contáctame y conversamos.'},{q:'¿Trabajás con imágenes de referencia?',a:'Sí, me encanta que me mandes inspiración, referencias y bocetos. Construimos juntos el diseño final.'},{q:'¿Se necesita depósito?',a:'Sí, pido un 30% de anticipo para apartar la cita. Se descuenta del total final.'},{q:'¿Hacés retoques?',a:'El primer retoque es gratuito entre la semana 4 y 8 después de la sesión.'},{q:'¿Duele mucho?',a:'Varía según la zona, pero es manejable. Trabajo con técnicas para hacerlo lo más cómodo posible.'} ]
+  faqs:[ {q:'¿Cuánto cuesta un tatuaje?',a:'El precio depende del tamaño, estilo y complejidad. Te daré un presupuesto exacto al conocer tu idea. Contáctame y conversamos.'},{q:'¿Trabajás con imágenes de referencia?',a:'Sí, me encanta que me mandes inspiración, referencias y bocetos. Construimos juntos el diseño final.'},{q:'¿Se necesita depósito?',a:'Sí, pido un 30% de anticipo para apartar la cita. Se descuenta del total final.'},{q:'¿Hacés retoques?',a:'El primer retoque es gratuito entre la semana 4 y 8 después de la sesión.'},{q:'¿Duele mucho?',a:'Varía según la zona, pero es manejable. Trabajo con técnicas para hacerlo lo más cómodo posible.'} ]
 };
 let D=null;
 function loadData(){ try{ let s=localStorage.getItem(KEY); if(s) D=JSON.parse(s); }catch(e){} if(!D) D=JSON.parse(JSON.stringify(DEFAULT)); }
 function saveData(){ localStorage.setItem(KEY,JSON.stringify(D)); }
 function toast(msg){ let t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2500); }
+
+// RENDER FRONT
 function renderPortfolio(){
   let cats=D.cats; let filtersDiv=document.getElementById('portfolioFilters');
   filtersDiv.innerHTML=`<button class="pf-btn active" onclick="filterPortfolio('all',this)">Todos</button>`+cats.map(c=>`<button class="pf-btn" onclick="filterPortfolio('${c.id}',this)">${c.name}</button>`).join('');
@@ -412,6 +470,40 @@ function toggleMobile(){ document.getElementById('mobileNav').classList.toggle('
 window.addEventListener('scroll',()=>{ document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>80); });
 const obs=new IntersectionObserver(e=>{ e.forEach(x=>{ if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08}); document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(r=>obs.observe(r));
 function initCanvas(){ let c=document.getElementById('inkCanvas'); let ctx=c.getContext('2d'); let W,H,drops=[]; function resize(){ W=c.width=window.innerWidth; H=c.height=window.innerHeight; } resize(); window.addEventListener('resize',resize); function spawn(){ drops.push({x:Math.random()*W,y:Math.random()*H*0.5,r:Math.random()*2+0.5,vy:Math.random()*0.3+0.1,life:0,maxLife:Math.random()*200+100,color:Math.random()>0.7?'rgba(196,30,58,':'rgba(245,240,235,'}); } for(let i=0;i<40;i++) spawn(); function tick(){ ctx.clearRect(0,0,W,H); drops.forEach((d,i)=>{ let p=d.life/d.maxLife; let op=p<0.3?p/0.3:(1-p)*1.2; ctx.beginPath(); ctx.arc(d.x,d.y,d.r,0,Math.PI*2); ctx.fillStyle=d.color+Math.min(op,0.55)+')'; ctx.fill(); d.y+=d.vy; d.life++; if(d.life>=d.maxLife){ drops.splice(i,1); spawn(); } }); requestAnimationFrame(tick); } tick(); }
+
+// ADMIN SECRET
+let tapCount=0, tapTimer=null;
+document.getElementById('secretFooter').addEventListener('click',()=>{
+  tapCount++; clearTimeout(tapTimer); tapTimer=setTimeout(()=>tapCount=0,2000);
+  if(tapCount>=5){ tapCount=0; document.getElementById('pwdOverlay').classList.add('open'); }
+});
+function checkPwd(){ let val=document.getElementById('pwdIn').value; if(val===D.config.pwd){ document.getElementById('pwdOverlay').classList.remove('open'); document.getElementById('pwdIn').value=''; openAdmin(); } else { document.getElementById('pwdErr').textContent='Contraseña incorrecta'; } }
+function openAdmin(){ populateAdminLists(); populateArtistaForm(); populateConfigForm(); document.getElementById('adminOverlay').classList.add('open'); }
+function closeAdmin(){ document.getElementById('adminOverlay').classList.remove('open'); }
+function aTab(btn,sec){ document.querySelectorAll('.a-tab').forEach(b=>b.classList.remove('active')); document.querySelectorAll('.a-sec').forEach(s=>s.classList.remove('active')); btn.classList.add('active'); document.getElementById(sec).classList.add('active'); }
+function populateAdminLists(){
+  let pcat=document.getElementById('pCat'); pcat.innerHTML=D.cats.map(c=>`<option value="${c.id}">${c.name}</option>`).join('');
+  document.getElementById('pList').innerHTML=D.portfolio.map(p=>`<div class="aitem"><div><div class="aitem-name">${p.name}</div><div class="aitem-sub">${p.style}</div></div><div class="aitem-acts"><button class="abtn abtn-s" onclick="editPItem('${p.id}')">✏️</button><button class="abtn abtn-d" onclick="delPItem('${p.id}')">🗑</button></div></div>`).join('');
+  document.getElementById('cwList').innerHTML=D.clientWorks.map(cw=>`<div class="aitem"><div><div class="aitem-name">${cw.name||'Cliente'}</div><div class="aitem-sub">${cw.desc}</div></div><div class="aitem-acts"><button class="abtn abtn-s" onclick="editCW('${cw.id}')">✏️</button><button class="abtn abtn-d" onclick="delCW('${cw.id}')">🗑</button></div></div>`).join('');
+  document.getElementById('catList').innerHTML=D.cats.map(c=>`<div class="aitem"><div class="aitem-name">${c.name}</div><button class="abtn abtn-d" onclick="delCat('${c.id}')">🗑</button></div>`).join('');
+}
+function savePortfolioItem(){ let name=document.getElementById('pName').value.trim(); let cat=document.getElementById('pCat').value; let style=document.getElementById('pStyle').value; let img=document.getElementById('pImg').value.trim(); let desc=document.getElementById('pDesc').value.trim(); let eid=document.getElementById('pEditId').value; if(!name) return toast('Nombre requerido'); if(eid){ let it=D.portfolio.find(p=>p.id===eid); Object.assign(it,{name,cat,style,img,desc}); } else { D.portfolio.push({id:'p'+Date.now(),name,cat,style,img,desc}); } saveData(); renderPortfolio(); populateAdminLists(); clearPForm(); toast('Diseño guardado'); }
+function editPItem(id){ let it=D.portfolio.find(p=>p.id===id); if(!it) return; document.getElementById('pName').value=it.name; document.getElementById('pCat').value=it.cat; document.getElementById('pStyle').value=it.style; document.getElementById('pImg').value=it.img||''; document.getElementById('pDesc').value=it.desc||''; document.getElementById('pEditId').value=it.id; prev(document.getElementById('pImg'),'pPrev'); aTab(document.querySelector('.a-tab'),'secPortfolio'); }
+function delPItem(id){ if(!confirm('¿Eliminar?')) return; D.portfolio=D.portfolio.filter(p=>p.id!==id); saveData(); renderPortfolio(); populateAdminLists(); }
+function clearPForm(){ ['pName','pImg','pDesc','pEditId'].forEach(id=>document.getElementById(id).value=''); document.getElementById('pPrev').style.display='none'; }
+function saveClientWork(){ let name=document.getElementById('cwName').value.trim(); let desc=document.getElementById('cwDesc').value.trim(); let img=document.getElementById('cwImg').value.trim(); let eid=document.getElementById('cwEditId').value; if(!desc) return toast('Descripción requerida'); if(eid){ let it=D.clientWorks.find(c=>c.id===eid); Object.assign(it,{name,desc,img}); } else { D.clientWorks.push({id:'cw'+Date.now(),name,desc,img}); } saveData(); renderClientWorks(); populateAdminLists(); clearCWForm(); toast('Trabajo guardado'); }
+function editCW(id){ let it=D.clientWorks.find(c=>c.id===id); if(!it) return; document.getElementById('cwName').value=it.name||''; document.getElementById('cwDesc').value=it.desc; document.getElementById('cwImg').value=it.img||''; document.getElementById('cwEditId').value=it.id; prev(document.getElementById('cwImg'),'cwPrev'); aTab(document.querySelectorAll('.a-tab')[1],'secClients'); }
+function delCW(id){ if(!confirm('¿Eliminar?')) return; D.clientWorks=D.clientWorks.filter(c=>c.id!==id); saveData(); renderClientWorks(); populateAdminLists(); }
+function clearCWForm(){ ['cwName','cwDesc','cwImg','cwEditId'].forEach(id=>document.getElementById(id).value=''); document.getElementById('cwPrev').style.display='none'; }
+function saveCat(){ let name=document.getElementById('catName').value.trim(); if(!name) return toast('Nombre de categoría'); D.cats.push({id:'cat'+Date.now(),name}); document.getElementById('catName').value=''; saveData(); renderPortfolio(); populateAdminLists(); toast('Categoría agregada'); }
+function delCat(id){ if(!confirm('¿Eliminar categoría?')) return; D.cats=D.cats.filter(c=>c.id!==id); saveData(); renderPortfolio(); populateAdminLists(); }
+function populateArtistaForm(){ let a=D.artista; document.getElementById('artName').value=a.name; document.getElementById('artImg').value=a.img||''; document.getElementById('artBio1').value=a.bio1; document.getElementById('artBio2').value=a.bio2; document.getElementById('artStat1').value=a.stat1; document.getElementById('artStat2').value=a.stat2; if(a.img){ let p=document.getElementById('artPrev'); p.src=a.img; p.style.display='block'; } }
+function saveArtista(){ D.artista.name=document.getElementById('artName').value.trim()||D.artista.name; D.artista.img=document.getElementById('artImg').value.trim(); D.artista.bio1=document.getElementById('artBio1').value.trim()||D.artista.bio1; D.artista.bio2=document.getElementById('artBio2').value.trim()||D.artista.bio2; D.artista.stat1=document.getElementById('artStat1').value.trim()||D.artista.stat1; D.artista.stat2=document.getElementById('artStat2').value.trim()||D.artista.stat2; D.artista.sig=D.artista.name.split(' ')[0]; saveData(); renderArtista(); toast('Perfil guardado'); }
+function populateConfigForm(){ let cfg=D.config; document.getElementById('cfgPhone').value=cfg.phone; document.getElementById('cfgIg').value=cfg.ig; document.getElementById('cfgAddr').value=cfg.addr; document.getElementById('cfgHours').value=cfg.hours; }
+function saveConfig(){ D.config.phone=document.getElementById('cfgPhone').value.trim()||D.config.phone; D.config.ig=document.getElementById('cfgIg').value.trim()||D.config.ig; D.config.addr=document.getElementById('cfgAddr').value.trim()||D.config.addr; D.config.hours=document.getElementById('cfgHours').value.trim()||D.config.hours; let np=document.getElementById('cfgPwd').value.trim(); if(np) D.config.pwd=np; saveData(); updateContactInfo(); toast('Configuración guardada'); }
+function resetAll(){ if(!confirm('Resetear todo al demo?')) return; localStorage.removeItem(KEY); D=JSON.parse(JSON.stringify(DEFAULT)); saveData(); renderPortfolio(); renderClientWorks(); renderArtista(); updateContactInfo(); populateAdminLists(); populateArtistaForm(); populateConfigForm(); toast('Restablecido'); }
+function prev(input,prevId){ let p=document.getElementById(prevId); if(input.value.trim()){ p.src=input.value.trim(); p.style.display='block'; } else { p.style.display='none'; } }
+
 loadData(); renderPortfolio(); renderClientWorks(); renderFAQ(); renderArtista(); updateContactInfo(); initCanvas();
 </script>
 </body>

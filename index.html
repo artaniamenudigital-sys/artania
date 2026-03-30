@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 <title>Artania — Tatuajes de Autor</title>
 <!-- Fuentes manuscritas / artísticas -->
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500;14..32,600&family=Lexend:wght@100;200;300;400;500;600&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500;14..32,600&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -32,7 +32,7 @@ h1, h2, h3, .hero-title, .sec-title, .nav-logo, .style-name, .faq-q-text, .conta
 }
 .hero-title{font-weight: 700;}
 .sec-title{font-weight: 600;}
-.hero-overline, .about-overline, .sec-overline, .care-step, .form-label, .style-price, .astat-label, .pi-style, .cw-desc, .footer-col-title, .footer-bottom, .contact-map-label, .hero-scroll-label {
+.hero-overline, .about-overline, .sec-overline, .care-step, .form-label, .astat-label, .pi-style, .cw-desc, .footer-col-title, .footer-bottom, .contact-map-label {
   font-family:'Inter', sans-serif;
   letter-spacing: 0.1em;
   font-weight: 300;
@@ -139,10 +139,7 @@ body::after{
   transition:all 0.3s;border-radius:40px;
 }
 .btn-ghost-red:hover{border-color:var(--red);color:var(--white)}
-.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;}
-.hero-scroll-line{width:1px;height:45px;overflow:hidden;position:relative}
-.hero-scroll-line::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:linear-gradient(180deg,transparent,var(--red),transparent);animation:drop 2s 2s ease infinite;}
-@keyframes drop{0%{top:-100%}100%{top:200%}}
+/* SCROLL INDICATOR ELIMINADO - ya no estorba */
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 
 /* ABOUT */
@@ -164,7 +161,7 @@ body::after{
 .astat-num{font-size:2rem;color:var(--red);font-weight:600;}
 .astat-label{font-size:8px;}
 
-/* PORTFOLIO + CATÁLOGO CON CLOUDFLARE R2 / IMAGENES */
+/* PORTFOLIO + CATÁLOGO */
 .portfolio{background:var(--dark);border-top:1px solid var(--border);padding:5rem 1rem}
 .container{max-width:1200px;margin:0 auto}
 .sec-overline{font-size:9px;letter-spacing:0.45em;margin-bottom:12px;display:flex;align-items:center;gap:12px;}
@@ -178,7 +175,6 @@ body::after{
 }
 .pf-btn.active{background:var(--red);border-color:var(--red);color:white;}
 .pf-btn:hover{border-color:rgba(245,240,235,0.4);color:var(--white);}
-/* Grid adaptable móvil */
 .portfolio-grid{
   display:grid;
   grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
@@ -236,7 +232,6 @@ body::after{
 .style-icon{font-size:1.6rem;margin-bottom:1rem}
 .style-name{font-size:1.4rem;margin-bottom:0.5rem;font-weight:600;}
 .style-desc{font-size:0.85rem;color:var(--mist);line-height:1.6;}
-/* eliminar precio visual */
 .style-price{display:none;}
 
 /* CARE */
@@ -360,7 +355,7 @@ footer{background:var(--void);padding:2.5rem 1rem 1rem;border-top:1px solid var(
 <p class="hero-subtitle">Tatuajes con alma — cada línea cuenta tu historia</p>
 <div class="hero-divider"><div class="hero-divider-line"></div><div class="hero-divider-line"></div></div>
 <div class="hero-btns"><a href="#portfolio" class="btn-red">Ver Catálogo</a><a href="#cita" class="btn-ghost-red">Agendar Cita</a></div></div>
-<div class="hero-scroll" onclick="document.getElementById('sobre').scrollIntoView({behavior:'smooth'})"><div class="hero-scroll-line"></div><div class="hero-scroll-label">Scroll</div></div>
+<!-- SCROLL INDICATOR ELIMINADO -->
 </section>
 
 <section class="about" id="sobre"><div class="about-inner"><div class="reveal-l"><div class="about-visual"><div class="about-frame"></div><div class="about-img" id="aboutImgWrap"><div class="about-img-placeholder">🖌️</div></div></div></div>
@@ -370,57 +365,4 @@ footer{background:var(--void);padding:2.5rem 1rem 1rem;border-top:1px solid var(
 
 <section class="client-works" id="trabajos"><div class="container"><div class="cw-header reveal"><div class="sec-overline">Clientes reales</div><h2 class="sec-title">Trabajos <em>realizados</em></h2><p style="font-family:'Quicksand';font-style:italic;font-size:0.9rem;color:var(--faint)">Con autorización de cada persona</p></div><div class="cw-grid" id="cwGrid"></div></div></section>
 
-<section class="styles-sec" id="estilos"><div class="container"><div class="reveal" style="text-align:center"><div class="sec-overline">Especialidades</div><h2 class="sec-title">Estilos que <em>domino</em></h2></div><div class="styles-grid"><div class="style-card"><div class="style-card-num">01</div><div class="style-icon">✒️</div><div class="style-name">Fine Line</div><div class="style-desc">Líneas ultrafinas, delicadas y precisas. Diseños minimalistas, florales y detalles finos.</div></div><div class="style-card"><div class="style-card-num">02</div><div class="style-icon">🖤</div><div class="style-name">Blackwork</div><div class="style-desc">Tintas negras sólidas, geométricos y diseños audaces de alto contraste.</div></div><div class="style-card"><div class="style-card-num">03</div><div class="style-icon">🌹</div><div class="style-name">Neo-Tradicional</div><div class="style-desc">Líneas modernas, colores saturados y composiciones vibrantes.</div></div><div class="style-card"><div class="style-card-num">04</div><div class="style-icon">🎭</div><div class="style-name">Ilustración</div><div class="style-desc">Estilo narrativo, personajes y mundos fantásticos con detalle.</div></div><div class="style-card"><div class="style-card-num">05</div><div class="style-icon">🌕</div><div class="style-name">Dotwork</div><div class="style-desc">Punteado para gradientes, mandalas y geometría sagrada.</div></div><div class="style-card"><div class="style-card-num">06</div><div class="style-icon">🔡</div><div class="style-name">Lettering</div><div class="style-desc">Tipografía a mano, frases y caligrafía personalizada.</div></div></div></div></section>
-
-<section class="care-sec" id="cuidados"><div class="care-inner"><div class="care-header reveal"><div class="sec-overline">Post-tatuaje</div><h2 class="sec-title">Cuidado <em>esencial</em></h2></div><div class="care-grid"><div class="care-card"><div class="care-step">Primeras 24h</div><div class="care-title">Protección inicial</div><div class="care-text">Lavar con jabón neutro, secar con toques suaves, hidratar sin fragancia.</div></div><div class="care-card"><div class="care-step">Días 2–7</div><div class="care-title">Hidratación</div><div class="care-text">Aplicar crema sin perfume 2-3 veces al día, evitar ropa ajustada.</div></div><div class="care-card"><div class="care-step">Siempre</div><div class="care-title">Protección solar</div><div class="care-text">SPF 50 después de curación, el sol envejece la tinta.</div></div><div class="care-card"><div class="care-step">Retoque</div><div class="care-title">Gratuito</div><div class="care-text">Un retoque sin costo entre 4 y 8 semanas después de la sesión.</div></div></div></div></section>
-
-<section class="booking-sec" id="cita"><div class="booking-inner"><div class="booking-header"><div class="sec-overline">Reserva tu lugar</div><h2 class="sec-title">Agendar <em>cita</em></h2><p>Cuéntame tu idea y te responderé en menos de 24h</p></div><form class="booking-form" onsubmit="submitBooking(event)"><div class="form-row"><div class="form-group"><label class="form-label">Nombre completo</label><input class="form-input" type="text" placeholder="Tu nombre" required/></div><div class="form-group"><label class="form-label">WhatsApp / Teléfono</label><input class="form-input" type="tel" placeholder="+506 6289 4346" required/></div></div><div class="form-row"><div class="form-group"><label class="form-label">Estilo preferido</label><select class="form-select"><option>Fine Line</option><option>Blackwork</option><option>Neo-Tradicional</option><option>Ilustración</option><option>Dotwork</option><option>Lettering</option><option>No sé / Asesoría</option></select></div><div class="form-group"><label class="form-label">Zona del cuerpo</label><select class="form-select"><option>Antebrazo</option><option>Brazo</option><option>Muñeca</option><option>Espalda</option><option>Pierna</option></select></div></div><div class="form-group"><label class="form-label">Descripción del diseño / idea</label><textarea class="form-textarea" rows="2" placeholder="Describí tu idea, referencias, colores..."></textarea></div><button type="submit" class="form-submit">Enviar solicitud →</button></form></div></section>
-
-<section class="faq-sec" id="faq"><div class="faq-inner"><div class="faq-header"><div class="sec-overline">Dudas frecuentes</div><h2 class="sec-title">Preguntas <em>comunes</em></h2></div><div id="faqList"></div></div></section>
-
-<section class="contact-sec" id="contacto"><div class="contact-inner"><div class="contact-info"><div class="sec-overline">Visitanos</div><h2 class="sec-title">Contacto<br><em>& Estudio</em></h2><div class="contact-items"><div class="contact-item"><div class="contact-icon">📍</div><div><div class="contact-label">Ubicación</div><div class="contact-val">Naranjo Centro, Alajuela<br>Con cita previa</div></div></div><div class="contact-item"><div class="contact-icon">💬</div><div><div class="contact-label">WhatsApp</div><div class="contact-val" id="cPhone">+506 6289 4346</div><a href="https://wa.me/50662894346?text=Hola%20Valeria%2C%20me%20interesa%20agendar%20una%20cita%20para%20un%20tatuaje" target="_blank" style="font-size:12px;color:var(--red)">Enviar mensaje →</a></div></div><div class="contact-item"><div class="contact-icon">📸</div><div><div class="contact-label">Instagram</div><div class="contact-val" id="cIg">@artania.cr</div><a href="https://instagram.com/artania.cr" target="_blank" style="font-size:12px;color:var(--red)">Ver perfil</a></div></div><div class="contact-item"><div class="contact-icon">🕐</div><div><div class="contact-label">Horario</div><div class="contact-val">Lun–Sáb · 10am – 7pm<br>Solo con cita</div></div></div></div><div class="contact-social"><a href="https://instagram.com/artania.cr" target="_blank">📸</a><a href="https://wa.me/50662894346?text=Hola%20quiero%20información%20sobre%20tatuajes" target="_blank">💬</a></div></div><div class="contact-map"><div class="contact-map-ring"><div class="contact-map-dot">📍</div></div><div class="contact-map-label">Artania Studio</div><button class="contact-map-btn" onclick="window.open('https://maps.google.com/?q=Naranjo+Alajuela+Costa+Rica','_blank')">Ver mapa →</button></div></div></section>
-
-<footer><div class="footer-inner"><div class="footer-brand"><div class="footer-logo">Artania<span>Studio</span></div><div class="footer-tagline">Arte en tu piel, para siempre</div><p>Diseños únicos en Naranjo, Alajuela. Técnica impecable y espacio seguro.</p></div><div class="footer-col"><div class="footer-col-title">Explora</div><ul><li><a href="#sobre">Artista</a></li><li><a href="#portfolio">Catálogo</a></li><li><a href="#estilos">Estilos</a></li><li><a href="#cuidados">Cuidados</a></li></ul></div><div class="footer-col"><div class="footer-col-title">Legal</div><ul><li><a href="#cita">Agendar cita</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contacto">Contacto</a></li></ul></div><div class="footer-col"><div class="footer-col-title">Redes</div><ul><li><a href="https://instagram.com/artania.cr" target="_blank">Instagram</a></li><li><a href="https://wa.me/50662894346" target="_blank">WhatsApp</a></li></ul></div></div><div class="footer-bottom"><p>© 2025 Artania Studio — Naranjo, Alajuela, CR</p><p>✨ Tinta con propósito</p></div></footer>
-<div class="lightbox" id="lightbox" onclick="closeLightbox(event)"><button class="lightbox-close" onclick="closeLightbox()">✕</button><img class="lightbox-img" id="lightboxImg"/><div class="lightbox-caption" id="lightboxCaption"></div></div>
-<div class="toast" id="toast"></div>
-
-<script>
-const KEY='artania_db';
-const DEFAULT={
-  config:{ studio:'Artania Studio', phone:'+506 6289 4346', ig:'@artania.cr', addr:'Naranjo Centro, Alajuela', hours:'Lun–Sáb · 10am – 7pm', pwd:'artania2025' },
-  artista:{ name:'Valeria Mora', img:'', bio1:'Tatuadora con más de 8 años de experiencia. Me encanta escuchar tu historia y transformarla en un diseño único sobre tu piel.', bio2:'Especializada en Fine Line, Blackwork e Ilustración. Cada pieza es un original, nunca repito diseños sin consentimiento.', sig:'Valeria', stat1:'8+', stat2:'500+', stat3:'100%' },
-  cats:[ {id:'cat1',name:'Florales'},{id:'cat2',name:'Animales'},{id:'cat3',name:'Abstracto'},{id:'cat4',name:'Lettering'} ],
-  portfolio:[ {id:'p1',cat:'cat1',name:'Rosa Minimalista',style:'Fine Line',img:'',desc:'Detalle delicado',price:''},{id:'p2',cat:'cat2',name:'Lobo Geométrico',style:'Blackwork',img:'',desc:'',price:''},{id:'p3',cat:'cat3',name:'Ojo Cósmico',style:'Dotwork',img:'',desc:'',price:''},{id:'p4',cat:'cat4',name:'Frase Caligrafía',style:'Lettering',img:'',desc:'',price:''} ],
-  clientWorks:[ {id:'cw1',img:'',name:'Ana M.',desc:'Floral fine line en antebrazo'},{id:'cw2',img:'',name:'Carlos R.',desc:'Blackwork geométrico'},{id:'cw3',img:'',name:'Sofia L.',desc:'Lettering en costilla'} ],
-  faqs:[ {q:'¿Cuánto cuesta un tatuaje?',a:'El precio depende del tamaño, estilo y complejidad. Me encargaré de darte un presupuesto exacto al conocer tu idea. Contáctame y conversamos.'},{q:'¿Trabajás con imágenes de referencia?',a:'Sí, me encanta que me mandes inspiración, referencias y bocetos. Construimos juntos el diseño final.'},{q:'¿Se necesita depósito?',a:'Sí, pido un 30% de anticipo para apartar la cita. Se descuenta del total final.'},{q:'¿Hacés retoques?',a:'El primer retoque es gratuito entre la semana 4 y 8 después de la sesión.'},{q:'¿Duele mucho?',a:'Varía según la zona, pero es manejable. Trabajo con técnicas para hacerlo lo más cómodo posible.'} ]
-};
-let D=null;
-function loadData(){ try{ let s=localStorage.getItem(KEY); if(s) D=JSON.parse(s); }catch(e){} if(!D) D=JSON.parse(JSON.stringify(DEFAULT)); }
-function saveData(){ localStorage.setItem(KEY,JSON.stringify(D)); }
-function toast(msg){ let t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2500); }
-function renderPortfolio(){
-  let cats=D.cats; let filtersDiv=document.getElementById('portfolioFilters');
-  filtersDiv.innerHTML=`<button class="pf-btn active" onclick="filterPortfolio('all',this)">Todos</button>`+cats.map(c=>`<button class="pf-btn" onclick="filterPortfolio('${c.id}',this)">${c.name}</button>`).join('');
-  renderPortfolioGrid('all');
-}
-function filterPortfolio(catId,btn){ document.querySelectorAll('.pf-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); renderPortfolioGrid(catId); }
-function renderPortfolioGrid(catId){ let items=catId==='all'?D.portfolio:D.portfolio.filter(p=>p.cat===catId); let grid=document.getElementById('portfolioGrid'); grid.innerHTML=items.map(item=>`<div class="portfolio-item" onclick="openLightbox('${item.img||''}','${item.name} · ${item.style}')">${item.img?`<img src="${item.img}" alt="${item.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>`:`<div class="portfolio-item-placeholder">🖌️</div>`}<div class="portfolio-item-overlay"><div class="pi-style">${item.style}</div><div class="pi-name">${item.name}</div></div><div class="pi-zoom">🔍</div></div>`).join(''); }
-function renderClientWorks(){ let grid=document.getElementById('cwGrid'); grid.innerHTML=D.clientWorks.map(cw=>`<div class="cw-item" onclick="openLightbox('${cw.img||''}','${cw.name||'Cliente'} · ${cw.desc}')">${cw.img?`<img src="${cw.img}" onerror="this.style.display='none'"/>`:`<div class="portfolio-item-placeholder" style="aspect-ratio:1;">🖌️</div>`}<div class="cw-overlay"><div class="cw-name">${cw.name||'Cliente'}</div><div class="cw-desc">${cw.desc}</div></div></div>`).join(''); }
-function renderFAQ(){ let list=document.getElementById('faqList'); list.innerHTML=D.faqs.map((f,i)=>`<div class="faq-item" id="faq${i}"><button class="faq-q" onclick="toggleFAQ(${i})"><span class="faq-q-text">${f.q}</span><span class="faq-q-icon">+</span></button><div class="faq-a"><div class="faq-a-inner">${f.a}</div></div></div>`).join(''); }
-function toggleFAQ(i){ let el=document.getElementById('faq'+i); let wasOpen=el.classList.contains('open'); document.querySelectorAll('.faq-item').forEach(e=>e.classList.remove('open')); if(!wasOpen) el.classList.add('open'); }
-function renderArtista(){ let a=D.artista; document.getElementById('artistaName').innerHTML=a.name.split(' ')[0]+'<br><em>'+a.name.split(' ').slice(1).join(' ')+'</em>'; document.getElementById('artistaBio1').textContent=a.bio1; document.getElementById('artistaBio2').textContent=a.bio2; document.getElementById('stat1').textContent=a.stat1; document.getElementById('stat2').textContent=a.stat2; if(a.img){ let wrap=document.getElementById('aboutImgWrap'); wrap.innerHTML=`<img src="${a.img}" alt="${a.name}" onerror="this.style.display='none'"/>`; } }
-function updateContactInfo(){ let cfg=D.config; document.getElementById('cPhone').innerHTML=cfg.phone; document.getElementById('cIg').innerHTML=cfg.ig; }
-function submitBooking(e){ e.preventDefault(); toast('✅ Solicitud enviada — te responderé por WhatsApp en breve.'); e.target.reset(); }
-function openLightbox(src,caption){ let lb=document.getElementById('lightbox'),img=document.getElementById('lightboxImg'),cap=document.getElementById('lightboxCaption'); if(src) img.src=src; else img.style.display='none'; cap.textContent=caption; lb.classList.add('open'); document.body.style.overflow='hidden'; }
-function closeLightbox(e){ if(e&&e.target!==document.getElementById('lightbox')&&!e.target.classList.contains('lightbox-close')) return; document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow=''; }
-function toggleMobile(){ document.getElementById('mobileNav').classList.toggle('open'); }
-window.addEventListener('scroll',()=>{ document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>80); });
-const obs=new IntersectionObserver(e=>{ e.forEach(x=>{ if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08}); document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(r=>obs.observe(r));
-function initCanvas(){ let c=document.getElementById('inkCanvas'); let ctx=c.getContext('2d'); let W,H,drops=[]; function resize(){ W=c.width=window.innerWidth; H=c.height=window.innerHeight; } resize(); window.addEventListener('resize',resize); function spawn(){ drops.push({x:Math.random()*W,y:Math.random()*H*0.5,r:Math.random()*2+0.5,vy:Math.random()*0.3+0.1,life:0,maxLife:Math.random()*200+100,color:Math.random()>0.7?'rgba(196,30,58,':'rgba(245,240,235,'}); } for(let i=0;i<40;i++) spawn(); function tick(){ ctx.clearRect(0,0,W,H); drops.forEach((d,i)=>{ let p=d.life/d.maxLife; let op=p<0.3?p/0.3:(1-p)*1.2; ctx.beginPath(); ctx.arc(d.x,d.y,d.r,0,Math.PI*2); ctx.fillStyle=d.color+Math.min(op,0.55)+')'; ctx.fill(); d.y+=d.vy; d.life++; if(d.life>=d.maxLife){ drops.splice(i,1); spawn(); } }); requestAnimationFrame(tick); } tick(); }
-loadData(); renderPortfolio(); renderClientWorks(); renderFAQ(); renderArtista(); updateContactInfo(); initCanvas();
-
-// permitir subir imagenes con Cloudflare R2 o cualquier URL pública: el admin puede pegar links de imágenes alojadas gratis (imgbb, cloudflare r2, etc)
-console.log("Catálogo dinámico con soporte para imágenes externas (Cloudflare, Imgur, etc)");
-</script>
-</body>
-</html>
+<section class="styles-sec" id="estilos"><div class="container"><div class="reveal" style="text-align:center"><div class="sec-overline">Especialidades</div><h2 class="sec-title">Estilos que <em>domino</em></h2></div><div class="styles-grid"><div class="style-card"><div class="style-card-num">01</div><div class="style-icon">✒️</div><div class="style-name">Fine Line</div><div class="style-desc">Líneas ultrafinas, delicadas y precisas. Diseños minimalistas, florales y detalles finos.</div></div><div class="style-card"><div class="style-card-num">02</div><div class="style-icon">🖤</div><div class="style-name">Blackwork</div><div class="style-desc">Tintas negras sólidas, geométricos y diseños audaces de alto contraste.</div></div><div class="style-card"><div class="style-card-num">03</div><div class="style-icon">🌹</div><div class="style-name">Neo-Tradicional</div><div class="style-desc">Líneas modernas, colores saturados y composiciones vibrantes.</div></div><div class="style-card"><div class="style-card-num">04</div><div class="style-icon">🎭</div><div class="style-name">Ilustración</div><div class="style-desc">Estilo narrativo, personajes y mundos fantásticos con detalle.</div></div><div class="style-card"><div class="style-card-num">05</div><div class="style-icon">🌕</div><div class="style-name">Dotwork</div><div class="style-desc">Punteado para gradientes, mandalas y geometría sagrada.</div></div><div class="style-card"><div class="style-card-num">06</div><
